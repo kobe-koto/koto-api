@@ -10,10 +10,6 @@ const options = {
 	method: 'GET',
 }
 
-req.on('error', error => {
-	console.error(error)
-})
-
 let data = '';
 
 const req = https.request(options, res => {
@@ -50,6 +46,10 @@ const req = https.request(options, res => {
 			}
 		}
 	})
+})
+
+req.on('error', error => {
+	console.error(error)
 })
 
 
