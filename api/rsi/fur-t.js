@@ -20,10 +20,10 @@ const req = https.request(options, res => {
 	req.on('end', () => {
 		const ColorImgJson = JSON.parse(data);
 		while (true) {
-			const name = global.ColorImgJson.pics[(Math.round((global.ColorImgJson.fileNum - 1) * Math.random()))].name;
+			const name = ColorImgJson.pics[(Math.round((ColorImgJson.fileNum - 1) * Math.random()))].name;
 			if (name != "LetMeFixThisErrorButDoNotThinkSoItIsWorkGood?.jpg") {
 				const url = originatorAPI + type + "/" + name;
-				const count = global.ColorImgJson.fileNum;
+				const count = ColorImgJson.fileNum;
 				const urlPreview = "https://drive.koto.cc/Main/Image/GetColorImg/" + type + "/" + name + "?preview";
 				const returnData = "{\"code\":\"200\",\"msg\":\"OK\",\"type\":\"" + type + "\",\"count\":\""+count+"\",\"name\":\""+name+"\",\"url\":\""+url+"\",\"urlPreview\":\""+urlPreview+"\"}";
 				//return new Response(returnData);
