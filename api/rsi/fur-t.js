@@ -10,6 +10,12 @@ const options = {
 	method: 'GET',
 }
 
+req.on('error', error => {
+	console.error(error)
+})
+
+let data = '';
+
 const req = https.request(options, res => {
 	console.log(`状态码: ${res.statusCode}`)
 	req.on('data', chunk => {
@@ -31,7 +37,6 @@ const req = https.request(options, res => {
 				//res.setHeader('Access-Control-Allow-Origin', '*');
 				//res.setHeader('Cache-Control', 'no-store');
 				response.status(200).send("\`"+returnData+"\`");
-				return false;
 
 
 
@@ -47,10 +52,5 @@ const req = https.request(options, res => {
 	})
 })
 
-req.on('error', error => {
-	console.error(error)
-})
-
-let data = '';
 
 req.end()
