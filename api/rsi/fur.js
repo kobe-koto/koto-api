@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+const fetch = import('node-fetch');
 
 export default function handler(request, response) {
 	const type = "transfur";
