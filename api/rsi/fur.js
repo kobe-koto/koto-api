@@ -15,11 +15,11 @@ export default function handler(request, response) {
 					const returnData = "{\"code\":\"200\",\"msg\":\"OK\",\"type\":\"" + type + "\",\"count\":\""+count+"\",\"name\":\""+name+"\",\"url\":\""+url+"\",\"urlPreview\":\""+urlPreview+"\"}";
 					//return new Response(returnData);
 
-					res.statusCode = 200;
-					res.setHeader('Content-Type', 'application/json;charset=UTF-8');
-					res.setHeader('Access-Control-Allow-Origin', '*');
-					res.setHeader('Cache-Control', 'no-store');
-					res.end(returnData);
+
+					//res.setHeader('Content-Type', 'application/json;charset=UTF-8');
+					//res.setHeader('Access-Control-Allow-Origin', '*');
+					//res.setHeader('Cache-Control', 'no-store');
+					response.status(200).send("\`"+returnData+"\`");
 					return false;
 
 
