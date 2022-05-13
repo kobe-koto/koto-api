@@ -32,7 +32,8 @@ const req = https.request(options, res => {
 				//res.setHeader('Content-Type', 'application/json;charset=UTF-8');
 				//res.setHeader('Access-Control-Allow-Origin', '*');
 				//res.setHeader('Cache-Control', 'no-store');
-				response.status(200).send("\`"+returnData+"\`");
+				response.status(200);
+				response.send(returnData);
 
 
 
