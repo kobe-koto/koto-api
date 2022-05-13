@@ -1,8 +1,8 @@
-const type = "transfur";
-const originatorAPI = "https://drive-koto.vercel.app/api/raw/?path=/Image/GetColorImg/";
 const fetch = require('node-fetch');
 
 export default function handler(request, response) {
+	const type = "transfur";
+	const originatorAPI = "https://drive-koto.vercel.app/api/raw/?path=/Image/GetColorImg/";
 	fetch("https://ghs.koto.cc/database/"+type+".txt")
 		.then(response => response.json())
 		.then(ColorImgJson => {
