@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Report Url Gen.</title>
+	<link rel="stylesheet" href="./main.css">
+	<script src="./main.js"></script>
+</head>
+<body>
+
+<div class="centerDiv">
+	<h3>Report Url Gen</h3>
+
+	<label for="URL">
+		<a>Report API URL</a>
+		<br>
+		<input type="text" id="URL">
+	</label>
+	<br><br>
+
+	<label for="BotID">
+		<a>Report BotID</a>
+		<br>
+		<input type="text" id="BotID">
+	</label>
+	<br><br>
+
+	<label for="title">
+		<a>Report title</a>
+		<br>
+		<input type="text" id="title">
+	</label>
+	<br><br>
+
+	<label for="text">
+		<a>Report text</a>
+		<br>
+		<textarea rows="5" id="text"></textarea>
+	</label>
+	<br><br>
+
+
+	<label for="redirect">
+		<a>Report redirect</a>
+		<br>
+		<input type="text" id="redirect">
+	</label>
+	<br><br>
+
+	<br><br>
+
+	<button onclick="GenUrl()">Click Here To Gen URL</button>
+
+	<h2 style="font-weight: normal">Your RAW URL is:
+		<br><br>
+		<strong id="rawURL"></strong>
+	</h2>
+	<h2 style="font-weight: normal">Your Base64 URL is:
+		<br><br>
+		<strong id="b64URL"></strong>
+	</h2>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/* Copyright kobe-koto */
+
+html,body {
+	margin: 0;
+	padding: 0;
+	color: #ffffff;
+	font-family: sans-serif,system-ui;
+}
+.centerDiv {
+	box-sizing: border-box;
+	/*width: 100vh;*/
+	height: 100vh;
+	background-color: #232323;
+	overflow: auto;
+	margin: auto;
+	padding: 15px;
+}
+input,textarea {
+	width: 95%;
+	border: none;
+	border-radius: 3px;
+	resize: none;
+	font-family: sans-serif,system-ui;
+}
