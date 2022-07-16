@@ -4,8 +4,6 @@ const availableType = {
 	split:["code","msg","type","count","name","url","urlPreview"]
 };
 
-
-
 addEventListener("fetch", (event) => {
 	return event.respondWith(
 		handleRequest(event.request).catch()
@@ -13,20 +11,15 @@ addEventListener("fetch", (event) => {
 });
 
 async function handleRequest(request) {
-	const url = new URL(request.url);
-	const { pathname,search } = url;
-	const databaseType = pathname.split("/")[1];
+	let url = new URL(request.url);
+	const databaseType = url.pathname.split("/")[1];
 	function GetQueryString(name) {
 		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-		var r = search.substr(1).match(reg);
+		var r = url.search.substr(1).match(reg);
 
-		if (r != null) {
-			return r[2];
-		} else {
-			return "";
-		}
-
+		if (r != null) {return r[2];} else {return "";}
 	}
+
 	for (var i=0;i<availableType.all.length;i++) {
 		if (databaseType.toLowerCase() == availableType.all[i].toLowerCase() ) {
 			const ColorImgJson = await fetch("https://ghs.koto.cc/database/"+databaseType+".txt").then(response => response.json())
@@ -35,9 +28,7 @@ async function handleRequest(request) {
 				const name = ColorImgJson.pics[(Math.round((ColorImgJson.fileNum - 1) * Math.random()))].name;
 				if (name != "LetMeFixThisErrorButDoNotThinkSoItIsWorkGood?.jpg") {
 					const url = originatorAPI + databaseType + "/" + name;
-
-
-					const type = GetQueryString("type")
+					const type = GetQueryString("type");
 
 					if (type == "json") {
 
@@ -70,11 +61,11 @@ async function handleRequest(request) {
 							return new Response(rawData, {headers: {'Content-Type':'image/png;charset=UTF-8', 'Access-Control-Allow-Origin':'*', 'Cache-Control':'no-store'}})
 						}
 					} else {
-						return new Response("400 Bad Request.",{headers:{"Content-Type":"text/plain;charset=UTF-8",'Access-Control-Allow-Origin':'*', 'Cache-Control':'no-store'}, status:400});
+						return new Response("400 Bad Request, Visit Docs: https://docs.koto.cc/apis/rsi .",{headers:{"Content-Type":"text/plain;charset=UTF-8",'Access-Control-Allow-Origin':'*', 'Cache-Control':'no-store'}, status:400});
 					}
 				}
 			}
 		}
 	}
-	return new Response("404 NOT FOUND",{headers:{"Content-Type":"text/plain;charset=UTF-8",'Access-Control-Allow-Origin':'*', 'Cache-Control':'no-store'}, status:404});
+	return new Response("404 NOT FOUND, Visit Docs: https://docs.koto.cc/apis/rsi .",{headers:{"Content-Type":"text/plain;charset=UTF-8",'Access-Control-Allow-Origin':'*', 'Cache-Control':'no-store'}, status:404});
 }
